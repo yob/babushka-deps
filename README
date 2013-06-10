@@ -1,0 +1,3 @@
+To provision a server for wole, login as root and:
+
+    babushka "provision wole"
