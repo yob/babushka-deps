@@ -6,6 +6,8 @@ dep 'provision wole' do
     'traceroute.bin',
     'libxml.lib',
     'libxslt.lib',
-    'monit.bin'
+    'monit.bin',
+    'searchd.bin',
+    'nginx.bin'
   ]
 end

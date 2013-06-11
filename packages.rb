@@ -10,6 +10,12 @@ end
 
 dep "monit.bin"
 
+dep "nginx.bin"
+
+dep "searchd.bin" do
+  installs { via :apt, 'sphinxsearch' }
+end
+
 dep "traceroute.bin"
 
 dep "vim.bin"
