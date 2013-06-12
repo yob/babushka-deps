@@ -12,8 +12,19 @@ dep 'provision wole' do
 
     'user exists'.with(:username => "rainbowbooks.com.au"),
     'app env vars set'.with(:username => "rainbowbooks.com.au", :env => 'production'),
-    #'clone repo'.with(:remote => "git@github.com:yob/rba.git")
+    'clone repo'.with(:remote => "git@github.com:yob/rba.git", :path => '/srv/rainbowbooks.com.au/current', :username => "rainbowbooks.com.au")
   ]
+end
+
+dep 'clone repo', :remote, :path, :username do
+  requires 'git.bin'
+  met? {
+    sudo("ls -l #{path} | wc -l", :as => username).to_i > 0
+  }
+
+  meet {
+    sudo("git clone #{remote} \"#{path}\"", :as => username)
+  }
 end
 
 dep 'admins can sudo' do
