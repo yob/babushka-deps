@@ -10,7 +10,9 @@ dep 'provision wole' do
     'searchd.bin',
     'nginx.bin',
 
-    'user exists'.with(username: "rainbowbooks.com.au")
+    'user exists'.with(:username => "rainbowbooks.com.au"),
+    'app env vars set'.with(:username => "rainbowbooks.com.au", :env => 'production'),
+    #'clone repo'.with(:remote => "git@github.com:yob/rba.git")
   ]
 end
 
